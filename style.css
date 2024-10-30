@@ -1,38 +1,7 @@
-body {
-    margin: 0;
+#jogo {
+    text-align: center;
 }
 
-#fundo {
-    margin: 0;
-    width: 512px;
-    height: 500px;
-    background-color: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#quadrado {
-    background-color: green;
-    width: 20px;
-    height: 20px;
-    margin-left: 33.50%;
-    margin-top: -3px;
-    position: absolute;
-    top: 120px;
-    z-index: 1000;
-
-}
-
-#maca {
-    margin: 0;
-    background-color: red;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#areaJogo {
+    border: 1px solid;
 }
