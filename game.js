@@ -1,8 +1,9 @@
 const areaJogo = document.querySelector('#areaJogo');
-const ctx = areaJogo.getContext('2d')
+const ctx = areaJogo.getContext('2d');
 
-const areaLargura = areaJogo.width;
-const areaAltura = areaJogo.height;
+
+const areaLargura = areaJogo.width; // altera esses 2 para mudar o tamanho do mapa mas tem que ser de 20 em 20
+const areaAltura = areaJogo.height; // altera esses 2 para mudar o tamanho do mapa mas tem que ser de 20 em 20
 const tamanho = 20;
 const comida = 'red';
 const cobraCor = 'green';
@@ -30,7 +31,7 @@ setInterval(() => {
     bateuParede();
     encostouFruta();
     encostouCauda();
-}, 90);
+}, 50);
 
 comidaCriada();
 function inicia(){};
@@ -47,7 +48,9 @@ function comidaCriada(){
 
 function corComida(){
     ctx.fillStyle = comida;
-    ctx.fillRect(comidaX, comidaY, tamanho, tamanho);
+    ctx.beginPath();
+    ctx.arc(comidaX + tamanho / 2, comidaY + tamanho / 2, tamanho / 2, 0, 2 * 3);
+    ctx.fill();
 };
 function cobraCriada(){
     ctx.fillStyle = cobraCor;
@@ -120,8 +123,8 @@ document.addEventListener('keydown', ({key}) =>{
 })
 
 function bateuParede(){
-    const cabeca = cobra[0]
-    if(cabeca.x < 0 || cabeca.x >= areaAltura || cabeca.y < 0 || cabeca.y > areaLargura) {
+    const cabeca = cobra[cobra.length - 1]
+    if(cabeca.x < 0 || cabeca.x >= areaAltura || cabeca.y < 0 || cabeca.y >= areaLargura) {
         cabeca.x = 0;
         location.reload()
         return true;
